@@ -1,0 +1,2 @@
+class CheckpointResource < ApplicationRecord
+end
