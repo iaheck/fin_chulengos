@@ -1,0 +1,2 @@
+class UserMentorPath < ApplicationRecord
+end
