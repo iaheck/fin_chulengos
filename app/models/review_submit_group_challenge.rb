@@ -1,0 +1,2 @@
+class ReviewSubmitGroupChallenge < ApplicationRecord
+end
