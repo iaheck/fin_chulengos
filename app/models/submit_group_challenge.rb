@@ -1,0 +1,2 @@
+class SubmitGroupChallenge < ApplicationRecord
+end

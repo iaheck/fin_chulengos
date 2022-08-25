@@ -1,0 +1,2 @@
+class GroupChallengeAssignment < ApplicationRecord
+end
