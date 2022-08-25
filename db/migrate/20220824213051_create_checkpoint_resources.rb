@@ -1,6 +1,6 @@
 class CreateCheckpointResources < ActiveRecord::Migration[7.0]
   def change
-    create_table :checkpoint_resources do |t|
+    create_table :checkpoint_resources, id: false do |t|
       t.integer :checkpoint_id
       t.integer :resource_id
 
