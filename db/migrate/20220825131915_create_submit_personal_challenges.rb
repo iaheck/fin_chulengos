@@ -4,7 +4,7 @@ class CreateSubmitPersonalChallenges < ActiveRecord::Migration[7.0]
       t.integer :assigment_id
       t.string :submit_content
       t.string :git_submit
-      t.datetime :submited_at
+      t.datetime :submitted_at
 
       t.timestamps
     end
