@@ -1,0 +1,2 @@
+class PathCheckpoint < ApplicationRecord
+end

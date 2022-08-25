@@ -1,0 +1,2 @@
+class UserReadResource < ApplicationRecord
+end
