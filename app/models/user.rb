@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable, :lockable
   has_many :UserChallengeAssignment, dependent: :destroy
+  has_and_belongs_to_many :groups
 end
