@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class GroupChallengeAssignment < ApplicationRecord
-    has_many :SubmitGroupChallenge, dependent: :destroy
-    belongs_to :Group
-    belongs_to :ChallengeGroup
+  has_many :SubmitGroupChallenge, dependent: :destroy
+  belongs_to :Group
+  belongs_to :ChallengeGroup
 end

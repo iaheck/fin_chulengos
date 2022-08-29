@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateUserReadResources < ActiveRecord::Migration[7.0]
   def change
     create_table :user_read_resources, id: false do |t|

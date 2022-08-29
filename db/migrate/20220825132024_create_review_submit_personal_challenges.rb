@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateReviewSubmitPersonalChallenges < ActiveRecord::Migration[7.0]
   def change
     create_table :review_submit_personal_challenges do |t|

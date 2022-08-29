@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreatePathCheckpoints < ActiveRecord::Migration[7.0]
   def change
     create_table :path_checkpoints, id: false do |t|
