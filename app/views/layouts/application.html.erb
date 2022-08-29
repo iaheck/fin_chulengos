@@ -12,8 +12,6 @@
   </head>
 
   <body>
-     <p class="notice"><%= notice %></p>
-     <p class="alert"><%= alert %></p>
      <%= link_to_unless_current "Home", root_path %>
      <% if current_user %>
        <%= link_to_unless_current current_user.email, edit_user_registration_path %>
