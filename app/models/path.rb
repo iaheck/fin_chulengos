@@ -6,4 +6,7 @@ class Path < ApplicationRecord
 
     has_many :UserMentorPath, dependent: :destroy
     has_many :User, :through => :UserMentorPath
+
+    validates :name, presence: true
+    validates :description, presence: true
 end
