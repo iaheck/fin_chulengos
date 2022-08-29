@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :paths
   resources :checkpoints
-  root "paths#index"
+  root "paths#show", :defaults => { :id => '1' }
 end
