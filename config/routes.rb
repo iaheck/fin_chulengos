@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   # root to: "home#index"
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :paths
-  resources :checkpoints
+  resources :paths, only: [:show] do
+    resources :checkpoints, only: [:index]
+  end
+
+  resources :checkpoints, only: [:show]
+
   root "paths#show", :defaults => { :id => '1' }
 end
