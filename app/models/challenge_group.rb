@@ -1,4 +1,4 @@
 class ChallengeGroup < ApplicationRecord
-    belongs_to :Checkpoint
-    has_many :GroupChallengeAssignment, dependent: :destroy
+    belongs_to :checkpoint
+    has_many :group_challenge_assignments, dependent: :destroy
 end

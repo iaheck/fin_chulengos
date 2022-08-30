@@ -1,4 +1,4 @@
 class ChallengePersonal < ApplicationRecord
-    belongs_to :Checkpoint
-    has_many :UserChallengeAssigment, dependent: :destroy
+    belongs_to :checkpoint
+    has_many :user_challenge_assigments, dependent: :destroy
 end

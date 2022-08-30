@@ -1,5 +1,5 @@
 class GroupChallengeAssignment < ApplicationRecord
-    has_many :SubmitGroupChallenge, dependent: :destroy
-    belongs_to :Group
-    belongs_to :ChallengeGroup
+    has_many :submit_group_challenges, dependent: :destroy
+    belongs_to :group
+    belongs_to :challenge_group
 end
