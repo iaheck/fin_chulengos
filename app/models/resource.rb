@@ -5,5 +5,4 @@ class Resource < ApplicationRecord
     has_many :Users, :through => :UserReadResource, dependent: :destroy
 
     validates :name, presence: true
-    
 end
