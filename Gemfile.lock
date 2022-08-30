@@ -97,6 +97,10 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.5.0)
     digest (3.1.0)
+    dotenv (2.8.1)
+    dotenv-rails (2.8.1)
+      dotenv (= 2.8.1)
+      railties (>= 3.2)
     erubi (1.11.0)
     factory_bot (6.2.1)
       activesupport (>= 5.0.0)
@@ -144,6 +148,8 @@ GEM
       timeout
     nio4r (2.5.8)
     nokogiri (1.13.8-aarch64-linux)
+      racc (~> 1.4)
+    nokogiri (1.13.8-arm64-darwin)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     parallel (1.22.1)
@@ -275,6 +281,7 @@ GEM
 
 PLATFORMS
   aarch64-linux
+  arm64-darwin-21
 
 DEPENDENCIES
   bootsnap
@@ -282,6 +289,7 @@ DEPENDENCIES
   debug
   devise
   factory_bot_rails
+  dotenv-rails
   importmap-rails
   jbuilder
   pg (~> 1.1)
@@ -303,4 +311,4 @@ RUBY VERSION
    ruby 3.1.2p20
 
 BUNDLED WITH
-   2.3.7
+   2.3.11
