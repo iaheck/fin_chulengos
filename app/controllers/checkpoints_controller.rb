@@ -2,8 +2,7 @@ class CheckpointsController < ApplicationController
   before_action :set_path, only: [:index]
   before_action :set_checkpoint, only: [:show]
 
-  def index
-  end
+  def index; end
 
   def show; end
 
