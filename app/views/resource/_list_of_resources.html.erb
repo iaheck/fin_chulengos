@@ -1,0 +1,12 @@
+<!-- show list of resources -->
+<% if @list_resources %>
+    <h2>List of Resources</h2
+
+    <% @list_resources.each do |resource| %>
+        <table>
+            <tr>
+                <td><%= link_to resource.id, resource %></td>
+            </tr>
+        </table>
+    <% end %>
+<% end %>

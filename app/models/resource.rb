@@ -3,4 +3,6 @@ class Resource < ApplicationRecord
 
     has_many :UserReadResource, dependent: :destroy
     has_many :Users, :through => :UserReadResource, dependent: :destroy
+
+    validates :name, presence: true
 end
