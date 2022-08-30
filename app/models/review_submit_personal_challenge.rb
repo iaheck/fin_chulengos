@@ -1,3 +1,3 @@
 class ReviewSubmitPersonalChallenge < ApplicationRecord
-    belongs_to :submit_personal_challenge
+  belongs_to :submit_personal_challenge
 end
