@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Myapp</title>
+    <title>Login</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -15,8 +15,7 @@
      <%= link_to_unless_current "Home", root_path %>
      <% if current_user %>
        <%= link_to_unless_current current_user.email, edit_user_registration_path %>
-       <%#= Is not working with link_to  %>
-       <%#= link_to "Salir", destroy_user_session_path, method: :delete %>
+       <%#= Is not working with link_to %>
        <%= button_to "Log out", destroy_user_session_path, method: :delete, data: { turbo: false } %>
      <% else %>
       <%= link_to "Registrarse", new_user_registration_path %>
