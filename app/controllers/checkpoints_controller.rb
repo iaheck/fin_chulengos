@@ -1,10 +1,10 @@
 class CheckpointsController < ApplicationController
-  def index
-  end
+  before_action :set_path, only: [:index]
+  before_action :set_checkpoint, only: [:show]
 
-  def show
-    @checkpoint = Checkpoint.find(params[:id])
-  end
+  def index; end
+
+  def show; end
 
   def new
     @checkpoint = Checkpoint.new
@@ -23,5 +23,13 @@ class CheckpointsController < ApplicationController
   private
     def checkpoint_params
       params.require(:checkpoint).permit(:name, :description)
+    end
+
+    def set_path
+      @path = Path.find(params[:path_id])
+    end
+
+    def set_checkpoint
+      @checkpoint = Checkpoint.find(params[:id])
     end
 end

@@ -1,4 +1,4 @@
 class UserReadResource < ApplicationRecord
-    belongs_to :User
-    belongs_to :Resource
+  belongs_to :user
+  belongs_to :resource
 end

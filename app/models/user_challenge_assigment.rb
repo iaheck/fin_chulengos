@@ -1,5 +1,5 @@
 class UserChallengeAssigment < ApplicationRecord
-    has_many :SubmitPersonalChallenge, dependent: :destroy
-    belongs_to :User
-    belongs_to :ChallengePersonal
+  has_many :submit_personal_challenges, dependent: :destroy
+  belongs_to :user
+  belongs_to :challenge_personal
 end

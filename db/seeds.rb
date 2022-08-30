@@ -5,3 +5,4 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+Path.create( name: "Backend developer", description: "Este solo es un path de prueba, qué esperabas wey!" )
