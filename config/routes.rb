@@ -2,8 +2,7 @@ Rails.application.routes.draw do
   get 'login/index'
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  root to: "home#index"
+  #resources :resource
   # Defines the root path route ("/")
   # root "articles#index"
   resources :paths, only: [:show] do
