@@ -1,11 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe "Checkpoints", type: :request do
-  describe "GET /index" do
-    # it "returns http success" do
-    #   get "/checkpoints/index"
-    #   expect(response).to have_http_status(:success)
-    # end
+  let!(:path) { create(:path) }
+  describe "GET /index nested in path" do
+    it "returns http success" do
+      get path_checkpoints_path(path)
+      expect(response).to have_http_status(:success)
+    end
   end
 
   let!(:checkpoint) { create(:checkpoint) }
