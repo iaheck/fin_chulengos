@@ -19,20 +19,12 @@ RSpec.describe "Resources", type: :request do
     let(:name) { "Pedro" }
 
     def execute
-      post resource_index_path, params: {
-        name: name,
-        description: "Contenido",
-        url: "http://google.cl"
-      }
+      post resource_index_path, params: { name: name, description: "Contenido", url: "http://google.cl" }
     end
 
     it do
       expect { execute }.to change { Resource.count }.by(1)
-      expect(Resource.last).to have_attributes(
-        name: "Pedro",
-        description: "Contenido",
-        url: "http://google.cl"
-      )
+      expect(Resource.last).to have_attributes(name: "Pedro", description: "Contenido", url: "http://google.cl")
     end
 
     context "with missing name param" do
