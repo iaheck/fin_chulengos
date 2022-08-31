@@ -23,7 +23,7 @@ RSpec.describe "Resources", type: :request do
     end
 
     it do
-      expect { execute }.to change { Resource.count }.by(1)
+      expect { execute }.to change(Resource, :count).by(1)
       expect(Resource.last).to have_attributes(name: "Pedro", description: "Contenido", url: "http://google.cl")
     end
 
@@ -34,7 +34,7 @@ RSpec.describe "Resources", type: :request do
         expect do
           execute
         rescue StandardError => e
-        end.to change { Resource.count }.by(0)
+        end.to change(Resource, :count).by(0)
       end
     end
   end
