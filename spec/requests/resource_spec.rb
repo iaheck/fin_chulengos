@@ -7,6 +7,7 @@ RSpec.describe "Resources", type: :request do
         get resource_index_path
         expect(response.body).to include("Resource")
       end
+
       it "The list of resources must to have the title List of resources" do
         get resource_index_path
         expect(response.body).to include("List of Resources")
@@ -44,7 +45,6 @@ RSpec.describe "Resources", type: :request do
         end.to change { Resource.count }.by(0)
       end
     end
-
 
   end
 end
