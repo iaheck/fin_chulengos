@@ -11,6 +11,14 @@ RSpec.describe "ChallengePersonals", type: :request do
   end
 
   describe "POST /create" do
+    let(:name) { 'Pedro' }
+    let(:description) { 'Contenido' }
+    let(:url) { 'http://google.cl' }
+    let(:checkpoint) do
+      Checkpoint.create(name: 'Checkpoint 1', description: 'Descripción del checkpoint 1')
+    end
+    let (:checkpoint_id) { checkpoint.id }
+    
     def execute
       post challenge_personals_path, params: {
         name: name,
@@ -22,13 +30,13 @@ RSpec.describe "ChallengePersonals", type: :request do
 
     it do
       expect { execute }.to change { ChallengePersonal.count }.by(1)
+
       expect(ChallengePersonal.last).to have_attributes(
-        name: 'Fin',
+        name: 'Pedro',
         description: 'Contenido',
         url: 'http://google.cl',
-        checkpoint_id: 1
+        checkpoint: checkpoint
       )
     end
   end
-
 end
