@@ -4,7 +4,7 @@ class ResourceController < ApplicationController
   def index
     @list_resources = Resource.all
   end
-    
+
   def show; end
 
   def new
@@ -13,7 +13,7 @@ class ResourceController < ApplicationController
 
   def create
     @resource = Resource.new(name: params[:name], description: params[:description], url: params[:url])
-  
+
     if @resource.save
       redirect_to @resource
     else
@@ -21,7 +21,8 @@ class ResourceController < ApplicationController
     end
   end
 
-    private
+  private
+
   def set_resource
     @resource = Resource.find(params[:id])
   end

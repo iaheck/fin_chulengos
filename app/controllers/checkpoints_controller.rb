@@ -21,6 +21,7 @@ class CheckpointsController < ApplicationController
   end
 
   private
+
   def checkpoint_params
     params.require(:checkpoint).permit(:name, :description)
   end
