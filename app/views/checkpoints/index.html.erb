@@ -1,10 +1,10 @@
+<h3>Sendero: <%= @path.name %></h3>
 <h1>Hitos</h1>
-<h3>Sendero asociado: <%= @path.name %></h3>
 <ul>
-    <% @path.checkpoints.each do |checkpoint| %>
-        <li>
-            <p><%= checkpoint.name %></p>
-            <%= link_to "Ver hito", checkpoint_path(checkpoint) %>
-        </li>
-    <% end %>
+  <% @path.checkpoints.each do |checkpoint| %>
+    <li>
+      <p><%= checkpoint.name %></p>
+      <%= link_to "Ver hito", checkpoint_path(checkpoint) %>
+    </li>
+  <% end %>
 </ul>
