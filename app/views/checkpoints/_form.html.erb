@@ -15,6 +15,13 @@
     <% end %>
   </div>
 
+  <%= fields_for(@checkpoint_path) do |cp| %>
+    <div class="field">
+      <%= cp.label "Senderos" %> <br>
+      <%= collection_select(:paths, :id, @all_paths, :id, :name, {}, {:multiple => true}) %>
+    </div>
+  <% end %>
+
   <div>
     <%= form.submit %>
   </div>

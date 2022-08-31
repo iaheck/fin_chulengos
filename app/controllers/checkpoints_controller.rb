@@ -8,10 +8,17 @@ class CheckpointsController < ApplicationController
 
   def new
     @checkpoint = Checkpoint.new
+    @all_paths = Path.all
+    #@checkpoint_path = @checkpoint.checkpoint
+    _paths.build
   end
 
   def create
-    @checkpoint = Checkpoint.new(checkpoint_params)
+    @checkpoint = Checkpoint.new(
+      name: checkpoint_params[:name],
+      description: checkpoint_params[:description],
+      paths: Path.where(id: checkpoint_params[:path_ids]),
+      )
 
     if @checkpoint.save
       redirect_to @checkpoint
@@ -25,11 +32,11 @@ class CheckpointsController < ApplicationController
       params.require(:checkpoint).permit(:name, :description)
     end
 
-    def set_roadmap
-      @roadmap = Roadmap.find(params[:roadmap_id])
-    end
+  def set_roadmap
+    @roadmap = Roadmap.find(params[:roadmap_id])
+  end
 
-    def set_checkpoint
-      @checkpoint = Checkpoint.find(params[:id])
-    end
+  def set_checkpoint
+    @checkpoint = Checkpoint.find(params[:id])
+  end
 end
