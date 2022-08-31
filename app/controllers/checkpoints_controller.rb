@@ -21,15 +21,15 @@ class CheckpointsController < ApplicationController
   end
 
   private
-    def checkpoint_params
-      params.require(:checkpoint).permit(:name, :description)
-    end
+  def checkpoint_params
+    params.require(:checkpoint).permit(:name, :description)
+  end
 
-    def set_path
-      @path = Path.find(params[:path_id])
-    end
+  def set_path
+    @path = Path.find(params[:path_id])
+  end
 
-    def set_checkpoint
-      @checkpoint = Checkpoint.find(params[:id])
-    end
+  def set_checkpoint
+    @checkpoint = Checkpoint.find(params[:id])
+  end
 end
