@@ -8,6 +8,21 @@ RSpec.describe "Checkpoints", type: :request do
     # end
   end
 
+  let!(:checkpoint) { create(:checkpoint) }
+  describe "GET /show" do
+    it "returns http success" do
+      get checkpoint_path(checkpoint.id)
+      expect(response).to have_http_status(:success)
+    end
+  end
+
+  describe "show checkpoint name" do
+    it "The page must have the path name" do
+      get checkpoint_path(checkpoint.id)
+      expect(response.body).to include("github")
+    end
+  end
+
   describe "POST /create" do
     let(:name) { 'github' }
     let(:description) { 'this is a nice checkpoint' }
