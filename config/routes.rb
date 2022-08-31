@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :checkpoints, only: [:index]
   end
 
-  resources :checkpoints, only: [:show]
+  resources :checkpoints, only: [:show, :new, :create]
 
   root "paths#show", :defaults => { :id => '1' }
   #root to:"login#index"
