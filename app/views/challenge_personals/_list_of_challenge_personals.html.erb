@@ -1,0 +1,22 @@
+<% if @list_challenge_personal %>
+  <h2>Lista de desafios personales</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>Name</th>
+        <th>Options</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @list_challenge_personal.each do |personal_challenge| %>
+        <tr>
+          <td><%= link_to personal_challenge.id, personal_challenge %></td>
+          <td><%= personal_challenge.name %></td>
+          <td>...</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
