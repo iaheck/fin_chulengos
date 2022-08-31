@@ -12,7 +12,8 @@ class ResourceController < ApplicationController
   end
 
   def create
-    @resource = Resource.new(name: params[:name], description: params[:description], url: params[:url])
+    @resource = Resource.new(name: params[:name], description: params[:description],
+                             url: params[:url])
 
     if @resource.save
       redirect_to @resource
