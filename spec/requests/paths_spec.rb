@@ -6,7 +6,7 @@ RSpec.describe PathsController, type: :request do
   describe "GET /show" do
     it "returns http success" do
       get path_path(path.id)
-      expect(response).to have_http_status(:success)
+      expect(response.has_http_status?(:success)).to be(true)
     end
   end
 
