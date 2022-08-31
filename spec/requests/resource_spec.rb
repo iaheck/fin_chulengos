@@ -34,7 +34,7 @@ RSpec.describe "Resources", type: :request do
         expect do
           execute
         rescue StandardError => e
-        end.to change(Resource, :count).by(0)
+        end.not_to change(Resource, :count)
       end
     end
   end
