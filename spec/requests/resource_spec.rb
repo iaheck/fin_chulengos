@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe "Resources", type: :request do
   describe "GET /index" do
@@ -16,22 +16,22 @@ RSpec.describe "Resources", type: :request do
   end
 
   describe "POST /create" do
-    let(:name) { 'Pedro' }
+    let(:name) { "Pedro" }
 
     def execute
       post resource_index_path, params: {
         name: name,
-        description: 'Contenido',
-        url: 'http://google.cl'
+        description: "Contenido",
+        url: "http://google.cl"
       }
     end
 
     it do
       expect { execute }.to change { Resource.count }.by(1)
       expect(Resource.last).to have_attributes(
-        name: 'Pedro',
-        description: 'Contenido',
-        url: 'http://google.cl'
+        name: "Pedro",
+        description: "Contenido",
+        url: "http://google.cl"
       )
     end
 
