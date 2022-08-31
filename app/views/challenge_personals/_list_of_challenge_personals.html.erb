@@ -1,4 +1,4 @@
-<% if @list_challenge_personals %>
+<% if @list_challenge_personal %>
   <h2>Lista de desafios personales</h2>
 
   <table>
@@ -10,7 +10,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @list_challenge_personals.each do |personal_challenge| %>
+      <% @list_challenge_personal.each do |personal_challenge| %>
         <tr>
           <td><%= link_to personal_challenge.id, personal_challenge %></td>
           <td><%= personal_challenge.name %></td>
