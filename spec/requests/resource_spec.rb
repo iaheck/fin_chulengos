@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe "Resources", type: :request do
   describe "GET /index" do
-    context "Resource index" do
+    context "when you go to Resource index" do
       it "The page must to have the title Resources" do
         get resource_index_path
         expect(response.body).to include("Resource")
@@ -33,7 +33,8 @@ RSpec.describe "Resources", type: :request do
       it "doesn't create a new record" do
         expect do
           execute
-        rescue StandardError => e
+        rescue StandardError
+          # Do nothing
         end.not_to change(Resource, :count)
       end
     end
