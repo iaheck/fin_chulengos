@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_07_152140) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_07_173311) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -68,6 +68,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_07_152140) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "roadmaps_users", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "roadmap_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "submit_personal_challenges", force: :cascade do |t|
     t.integer "assigment_id"
     t.string "submit_content"
@@ -87,13 +94,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_07_152140) do
 
   create_table "user_mentor_paths", force: :cascade do |t|
     t.integer "usre_id"
-    t.integer "path_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "user_paths", force: :cascade do |t|
-    t.integer "user_id"
     t.integer "path_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
