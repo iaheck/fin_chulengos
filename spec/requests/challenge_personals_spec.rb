@@ -17,9 +17,8 @@ RSpec.describe "ChallengePersonals", type: :request do
     let(:checkpoint) do
       Checkpoint.create(name: 'Checkpoint 1', description: 'Descripción del checkpoint 1')
     end
-    let (:checkpoint_id) { checkpoint.id }
-    
-    
+    let(:checkpoint_id) { checkpoint.id }
+
     def execute
       post challenge_personals_path, params: {
         name: name,
@@ -43,7 +42,7 @@ RSpec.describe "ChallengePersonals", type: :request do
 
   describe "GET /show" do
     let!(:challenge_personal) { create(:challenge_personal) }
-  
+
     it "The page must to have the title Desafio personal" do
       get challenge_personal_path(challenge_personal.id)
 

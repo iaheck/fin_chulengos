@@ -54,5 +54,4 @@ RSpec.describe "Checkpoints", type: :request do
       end
     end
   end
-
 end

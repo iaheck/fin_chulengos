@@ -22,8 +22,8 @@ class ChallengePersonalsController < ApplicationController
   end
 
   private
+
   def set_challenge_personal
     @challenge_personal = ChallengePersonal.find(params[:id])
   end
-    
 end

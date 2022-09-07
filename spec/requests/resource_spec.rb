@@ -44,7 +44,5 @@ RSpec.describe "Resources", type: :request do
         end.to change { Resource.count }.by(0)
       end
     end
-
-
   end
 end
