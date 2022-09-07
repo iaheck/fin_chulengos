@@ -18,7 +18,7 @@
   <%= fields_for(@checkpoint_path) do |cp| %>
     <div class="field">
       <%= cp.label "Senderos" %> <br>
-      <%= collection_select(:paths, :id, @all_paths, :id, :name, {}, {:multiple => true}) %>
+      <%= collection_select(:paths, :id, @all_roadmaps, :id, :name, {}, {:multiple => true}) %>
     </div>
   <% end %>
 

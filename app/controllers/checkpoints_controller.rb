@@ -8,9 +8,8 @@ class CheckpointsController < ApplicationController
 
   def new
     @checkpoint = Checkpoint.new
-    @all_paths = Path.all
-    #@checkpoint_path = @checkpoint.checkpoint
-    _paths.build
+    @all_roadmaps = Roadmap.all
+    #@checkpoint_path = @checkpoint.checkpoint_paths.build
   end
 
   def create
