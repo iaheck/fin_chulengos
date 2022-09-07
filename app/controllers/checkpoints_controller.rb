@@ -1,5 +1,5 @@
 class CheckpointsController < ApplicationController
-  before_action :set_path, only: [:index]
+  before_action :set_roadmap, only: [:index]
   before_action :set_checkpoint, only: [:show]
 
   def index; end
@@ -25,8 +25,8 @@ class CheckpointsController < ApplicationController
       params.require(:checkpoint).permit(:name, :description)
     end
 
-    def set_path
-      @path = Path.find(params[:path_id])
+    def set_roadmap
+      @roadmap = Roadmap.find(params[:roadmap_id])
     end
 
     def set_checkpoint

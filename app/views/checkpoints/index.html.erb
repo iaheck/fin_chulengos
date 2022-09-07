@@ -1,7 +1,7 @@
-<h3>Sendero: <%= @path.name %></h3>
+<h3>Sendero: <%= @roadmap.name %></h3>
 <h1>Hitos</h1>
 <ul>
-  <% @path.checkpoints.each do |checkpoint| %>
+  <% @roadmap.checkpoints.each do |checkpoint| %>
     <li>
       <p><%= checkpoint.name %></p>
       <%= link_to "Ver hito", checkpoint_path(checkpoint) %>
