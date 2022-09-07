@@ -9,7 +9,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :lockable
   has_many :UserChallengeAssignment, dependent: :destroy
-  has_and_belongs_to_many :groups
   has_many :user_read_resources, dependent: :destroy
   has_many :resources, :through => :user_read_resources, dependent: :destroy
 
