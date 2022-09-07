@@ -19,7 +19,7 @@ RSpec.describe "Resources", type: :request do
 
     def execute
       post resource_index_path, params: {
-        name: name,
+        name:,
         description: 'Contenido',
         url: 'http://google.cl'
       }

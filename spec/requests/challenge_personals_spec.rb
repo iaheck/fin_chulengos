@@ -21,10 +21,10 @@ RSpec.describe "ChallengePersonals", type: :request do
 
     def execute
       post challenge_personals_path, params: {
-        name: name,
-        description: description,
-        url: url,
-        checkpoint_id: checkpoint_id
+        name:,
+        description:,
+        url:,
+        checkpoint_id:
       }
     end
 
@@ -35,7 +35,7 @@ RSpec.describe "ChallengePersonals", type: :request do
         name: 'Pedro',
         description: 'Contenido',
         url: 'http://google.cl',
-        checkpoint: checkpoint
+        checkpoint:
       )
     end
   end
