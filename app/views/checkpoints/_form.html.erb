@@ -15,10 +15,10 @@
     <% end %>
   </div>
 
-  <%= fields_for(@checkpoint_path) do |cp| %>
+  <%= fields_for(@checkpoint_roadmap) do |cr| %>
     <div class="field">
-      <%= cp.label "Senderos" %> <br>
-      <%= collection_select(:paths, :id, @all_roadmaps, :id, :name, {}, {:multiple => true}) %>
+      <%= cr.label "Senderos" %> <br>
+      <%= collection_select(:roadmaps, :id, @all_roadmaps, :id, :name, {}, {:multiple => true}) %>
     </div>
   <% end %>
 

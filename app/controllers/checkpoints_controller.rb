@@ -9,20 +9,20 @@ class CheckpointsController < ApplicationController
   def new
     @checkpoint = Checkpoint.new
     @all_roadmaps = Roadmap.all
-    #@checkpoint_path = @checkpoint.checkpoints_roadmaps.build
+    @checkpoint_roadmap = @checkpoint.checkpoint_roadmaps.build
   end
 
   def create
     @checkpoint = Checkpoint.new(
       name: checkpoint_params[:name],
       description: checkpoint_params[:description],
-      roadmaps: Roadmap.where(id: checkpoint_params[:roadmaps_ids]),
       )
-    # checkpoint_params[:roadmaps][:id].each do |roadmap|
-    #   if !roadmap.empty?
-    #     @checkpoint.checkpoints_roadmaps.build(:roadmap_id => roadmap)
-    #   end
-    # end
+
+      params[:roadmap][:id].each do |roadmap|
+      if !roadmap.empty?
+        @checkpoint.checkpoint_roadmaps.build(:roadmap_id => roadmap)
+      end
+    end
 
     if @checkpoint.save
       redirect_to @checkpoint
