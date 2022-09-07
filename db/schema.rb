@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_07_174812) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_07_182712) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -45,10 +45,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_07_174812) do
   end
 
   create_table "mentors_roadmaps", force: :cascade do |t|
-    t.integer "mentor_id"
-    t.integer "roadmap_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "mentor_id"
+    t.bigint "roadmap_id"
+    t.index ["mentor_id"], name: "index_mentors_roadmaps_on_mentor_id"
+    t.index ["roadmap_id"], name: "index_mentors_roadmaps_on_roadmap_id"
   end
 
   create_table "resources", force: :cascade do |t|
@@ -127,4 +129,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_07_174812) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "mentors_roadmaps", "users", column: "mentor_id"
 end
