@@ -1,0 +1,2 @@
+class CheckpointRoadmap < ApplicationRecord
+end
