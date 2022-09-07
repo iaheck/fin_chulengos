@@ -9,9 +9,9 @@ Rails.application.routes.draw do
     resources :checkpoints, only: [:index]
   end
 
-  resources :checkpoints, only: [:show, :new, :create]
+  resources :checkpoints, only: %i[show new create]
 
   root "roadmaps#show", defaults: { id: '1' }
   # root to:"login#index"
-  resources :challenge_personals, only: [:index, :show, :new, :create]
+  resources :challenge_personals, only: %i[index show new create]
 end
