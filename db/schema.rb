@@ -10,18 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_30_004452) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_05_172851) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "challenge_groups", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.string "url"
-    t.integer "checkpoint_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "challenge_personals", force: :cascade do |t|
     t.string "name"
@@ -53,20 +44,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_004452) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "group_challenge_assignments", force: :cascade do |t|
-    t.integer "group_id"
-    t.integer "challenge_id"
-    t.datetime "started_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "groups", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "paths", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -82,29 +59,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_004452) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "review_submit_group_challenges", force: :cascade do |t|
-    t.integer "submit_group_challenge_id"
-    t.text "comment"
-    t.datetime "reviewed_at"
-    t.datetime "approved_at"
-    t.integer "reviewer_user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "review_submit_personal_challenges", force: :cascade do |t|
     t.integer "submit_personal_challenge_id"
     t.text "comment"
     t.datetime "reviewed_at"
     t.datetime "approved_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "submit_group_challenges", force: :cascade do |t|
-    t.integer "assignment_id"
-    t.text "submit_content"
-    t.string "submit_git"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -122,13 +81,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_004452) do
     t.integer "user_id"
     t.integer "challenge_personal_id"
     t.datetime "started_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "user_groups", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
