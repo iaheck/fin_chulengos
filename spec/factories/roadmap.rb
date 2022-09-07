@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :path do
+  factory :roadmap do
     name { 'sendero' }
     description { 'este sendero es cool' }
   end
