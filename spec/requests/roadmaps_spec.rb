@@ -1,18 +1,18 @@
 require 'rails_helper'
 
-RSpec.describe PathsController, type: :request do
-  let!(:path) { create(:path) }
+RSpec.describe RoadmapsController, type: :request do
+  let!(:roadmap) { create(:roadmap) }
 
   describe "GET /show" do
     it "returns http success" do
-      get path_path(path.id)
+      get roadmap_path(roadmap.id)
       expect(response).to have_http_status(:success)
     end
   end
 
   describe "show path name" do
     it "The page must have the path name" do
-      get path_path(path.id)
+      get roadmap_path(roadmap.id)
       expect(response.body).to include("sendero")
     end
   end

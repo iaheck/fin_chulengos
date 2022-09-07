@@ -1,4 +1,4 @@
-class Path < ApplicationRecord
+class Roadmap < ApplicationRecord
   has_and_belongs_to_many :checkpoints
 
   has_many :user_paths, dependent: :destroy
