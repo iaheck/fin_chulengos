@@ -15,6 +15,13 @@
     <% end %>
   </div>
 
+  <%= fields_for(@checkpoint_roadmap) do |cr| %>
+    <div class="field">
+      <%= cr.label "Senderos" %> <br>
+      <%= collection_select(:roadmaps, :id, @all_roadmaps, :id, :name, {}, {:multiple => true}) %>
+    </div>
+  <% end %>
+
   <div>
     <%= form.submit %>
   </div>

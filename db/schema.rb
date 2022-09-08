@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_07_182712) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_07_204622) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -30,6 +30,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_07_182712) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "checkpoint_roadmaps", force: :cascade do |t|
+    t.integer "roadmap_id"
+    t.integer "checkpoint_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "checkpoints", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -37,14 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_07_182712) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "checkpoints_roadmaps", force: :cascade do |t|
-    t.integer "roadmap_id"
-    t.integer "checkpoint_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "mentors_roadmaps", force: :cascade do |t|
+  create_table "mentors_roadmaps", id: false, force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "mentor_id"
@@ -77,7 +77,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_07_182712) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "roadmaps_users", force: :cascade do |t|
+  create_table "roadmaps_users", id: false, force: :cascade do |t|
     t.integer "user_id"
     t.integer "roadmap_id"
     t.datetime "created_at", null: false
@@ -101,7 +101,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_07_182712) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "user_read_resources", force: :cascade do |t|
+  create_table "user_read_resources", id: false, force: :cascade do |t|
     t.integer "user_id"
     t.integer "resource_id"
     t.datetime "created_at", null: false
