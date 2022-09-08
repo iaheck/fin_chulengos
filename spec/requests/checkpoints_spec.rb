@@ -30,28 +30,27 @@ RSpec.describe 'Checkpoints', type: :request do
     let(:description) { 'this is a nice checkpoint' }
     let(:roadmaps_ids) { [roadmap.id.to_s] }
 
-    
     def execute
       post checkpoints_path, params: {
-        checkpoint:{
+        checkpoint: {
           name:,
-          description:,
+          description:
         },
-        roadmaps:{
+        roadmaps: {
           id: roadmaps_ids
         }
       }
     end
 
-    it "creates a Checkpoint with expected attributes" do
+    it 'creates a Checkpoint with expected attributes' do
       expect { execute }.to change { Checkpoint.count }.by(1)
       expect(Checkpoint.last).to have_attributes(
-        name: name,
-        description: description
+        name:,
+        description:
       )
     end
 
-    it "creates a Checkpoint-Roadmap assosiation with expected attributes" do
+    it 'creates a Checkpoint-Roadmap assosiation with expected attributes' do
       expect { execute }.to change { CheckpointRoadmap.count }.by(1)
       expect(CheckpointRoadmap.last).to have_attributes(
         checkpoint_id: Checkpoint.last.id,
@@ -61,6 +60,17 @@ RSpec.describe 'Checkpoints', type: :request do
 
     context 'with missing name param' do
       let(:name) { nil }
+
+      it "doesn't create a new record" do
+        expect do
+          execute
+        rescue StandardError => e
+        end.to change { Checkpoint.count }.by(0)
+      end
+    end
+
+    context 'with missing description param' do
+      let(:description) { nil }
 
       it "doesn't create a new record" do
         expect do

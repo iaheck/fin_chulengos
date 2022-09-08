@@ -6,4 +6,5 @@ class Checkpoint < ApplicationRecord
   has_many :roadmaps, through: :checkpoint_roadmaps
 
   validates :name, presence: true
+  validates :description, presence: true
 end
