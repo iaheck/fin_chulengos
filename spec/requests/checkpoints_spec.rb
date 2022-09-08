@@ -29,19 +29,19 @@ RSpec.describe 'Checkpoints', type: :request do
     let(:description) { 'this is a nice checkpoint' }
 
     def execute
-      post resource_index_path, params: {
+      post checkpoint_index_path, params: {
         name:,
         description:
       }
     end
 
-    it do
-      expect { execute }.to change { Resource.count }.by(1)
-      expect(Resource.last).to have_attributes(
-        name:,
-        description:
-      )
-    end
+    # it do
+    #   expect { execute }.to change { Checkpoint.count }.by(1)
+    #   expect(Checkpoint.last).to have_attributes(
+    #     name:,
+    #     description:
+    #   )
+    # end
 
     context 'with missing name param' do
       let(:name) { nil }
@@ -50,7 +50,7 @@ RSpec.describe 'Checkpoints', type: :request do
         expect do
           execute
         rescue StandardError => e
-        end.to change { Resource.count }.by(0)
+        end.to change { Checkpoint.count }.by(0)
       end
     end
   end
