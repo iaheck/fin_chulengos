@@ -1,20 +1,20 @@
 require 'rails_helper'
 
-RSpec.describe "Resources", type: :request do
-  describe "GET /index" do
-    context "Resource index" do
-      it "The page must to have the title Resources" do
+RSpec.describe 'Resources', type: :request do
+  describe 'GET /index' do
+    context 'Resource index' do
+      it 'The page must to have the title Resources' do
         get resource_index_path
-        expect(response.body).to include("Resource")
+        expect(response.body).to include('Resource')
       end
-      it "The list of resources must to have the title List of resources" do
+      it 'The list of resources must to have the title List of resources' do
         get resource_index_path
-        expect(response.body).to include("List of Resources")
+        expect(response.body).to include('List of Resources')
       end
     end
   end
 
-  describe "POST /create" do
+  describe 'POST /create' do
     let(:name) { 'Pedro' }
 
     def execute
@@ -34,7 +34,7 @@ RSpec.describe "Resources", type: :request do
       )
     end
 
-    context "with missing name param" do
+    context 'with missing name param' do
       let(:name) { nil }
 
       it "doesn't create a new record" do
