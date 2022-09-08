@@ -19,9 +19,7 @@ class CheckpointsController < ApplicationController
     )
 
     params[:roadmap][:id].each do |roadmap|
-      if !roadmap.empty?
-        @checkpoint.checkpoint_roadmaps.build(:roadmap_id => roadmap)
-      end
+      @checkpoint.checkpoint_roadmaps.build(roadmap_id: roadmap) unless roadmap.empty?
     end
 
     if @checkpoint.save
