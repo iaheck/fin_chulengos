@@ -30,12 +30,20 @@ RSpec.describe 'Resources', type: :request do
       }
     end
 
-    it do
+    it 'creates a Resource with expected attributes' do
       expect { execute }.to change { Resource.count }.by(1)
       expect(Resource.last).to have_attributes(
         name: 'Pedro',
         description: 'Este es un recurso',
         url: 'http://google.cl'
+      )
+    end
+
+    it 'creates a Resource-Checkpoint assosiation with expected attributes' do
+      expect { execute }.to change { CheckpointResource.count }.by(1)
+      expect(CheckpointResource.last).to have_attributes(
+        checkpoint_id: checkpoint.id,
+        resource_id: Resource.last.id
       )
     end
 
