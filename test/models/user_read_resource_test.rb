@@ -1,4 +1,4 @@
-require "test_helper"
+require 'test_helper'
 
 class UserReadResourceTest < ActiveSupport::TestCase
   # test "the truth" do

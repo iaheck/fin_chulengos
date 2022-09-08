@@ -1,30 +1,30 @@
 require 'rails_helper'
 
-RSpec.describe "Checkpoints", type: :request do
+RSpec.describe 'Checkpoints', type: :request do
   let!(:roadmap) { create(:roadmap) }
-  describe "GET /index nested in path" do
-    it "returns http success" do
+  describe 'GET /index nested in path' do
+    it 'returns http success' do
       get roadmap_checkpoints_path(roadmap)
       expect(response).to have_http_status(:success)
     end
   end
 
   let!(:checkpoint) { create(:checkpoint) }
-  describe "GET /show" do
-    it "returns http success" do
+  describe 'GET /show' do
+    it 'returns http success' do
       get checkpoint_path(checkpoint.id)
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "show checkpoint name" do
-    it "The page must have the path name" do
+  describe 'show checkpoint name' do
+    it 'The page must have the path name' do
       get checkpoint_path(checkpoint.id)
-      expect(response.body).to include("github")
+      expect(response.body).to include('github')
     end
   end
 
-  describe "POST /create" do
+  describe 'POST /create' do
     let(:name) { 'github' }
     let(:description) { 'this is a nice checkpoint' }
 
@@ -43,7 +43,7 @@ RSpec.describe "Checkpoints", type: :request do
       )
     end
 
-    context "with missing name param" do
+    context 'with missing name param' do
       let(:name) { nil }
 
       it "doesn't create a new record" do

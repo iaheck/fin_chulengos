@@ -1,16 +1,16 @@
 require 'rails_helper'
 
-RSpec.describe "ChallengePersonals", type: :request do
-  describe "GET /index" do
-    context "ChallengePersonals index" do
-      it "The page must to have the title ChallengePersonals" do
+RSpec.describe 'ChallengePersonals', type: :request do
+  describe 'GET /index' do
+    context 'ChallengePersonals index' do
+      it 'The page must to have the title ChallengePersonals' do
         get challenge_personals_path
-        expect(response.body).to include("Desafios personales")
+        expect(response.body).to include('Desafios personales')
       end
     end
   end
 
-  describe "POST /create" do
+  describe 'POST /create' do
     let(:name) { 'Pedro' }
     let(:description) { 'Contenido' }
     let(:url) { 'http://google.cl' }
@@ -40,13 +40,13 @@ RSpec.describe "ChallengePersonals", type: :request do
     end
   end
 
-  describe "GET /show" do
+  describe 'GET /show' do
     let!(:challenge_personal) { create(:challenge_personal) }
 
-    it "The page must to have the title Desafio personal" do
+    it 'The page must to have the title Desafio personal' do
       get challenge_personal_path(challenge_personal.id)
 
-      expect(response.body).to include("Desafio personal")
+      expect(response.body).to include('Desafio personal')
     end
   end
 end
