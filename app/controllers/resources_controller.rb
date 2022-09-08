@@ -1,5 +1,6 @@
-class ResourceController < ApplicationController
+class ResourcesController < ApplicationController
   before_action :set_resource, only: [:show]
+  before_action :set_checkpoint, only: [:index]
 
   def index
     @list_resources = Resource.all
@@ -17,7 +18,7 @@ class ResourceController < ApplicationController
     if @resource.save
       redirect_to @resource
     else
-      render :new, status: :unprocessable_entity
+      render :index, status: :unprocessable_entity
     end
   end
 
@@ -26,4 +27,8 @@ class ResourceController < ApplicationController
   def set_resource
     @resource = Resource.find(params[:id])
   end
+  def set_checkpoint
+    @checkpoint = Checkpoint.find(params[:id])
+  end
+
 end

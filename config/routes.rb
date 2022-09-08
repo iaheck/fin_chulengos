@@ -2,14 +2,16 @@ Rails.application.routes.draw do
   get 'login/index'
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  resources :resource
+  resources :resources
   # Defines the root path route ("/")
   # root "articles#index"
   resources :roadmaps, only: [:show] do
     resources :checkpoints, only: [:index]
   end
 
-  resources :checkpoints, only: %i[show new create]
+  resources :checkpoints, only: %i[index show new create]
+
+  get 'checkpoints/:id/resource' => 'resources#index', as: :checkpoint_resource
 
   root 'roadmaps#show', defaults: { id: '1' }
   # root to:"login#index"

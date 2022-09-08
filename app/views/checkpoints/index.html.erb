@@ -1,10 +1,36 @@
-<h3>Sendero: <%= @roadmap.name %></h3>
-<h1>Hitos</h1>
-<ul>
-  <% @roadmap.checkpoints.each do |checkpoint| %>
-    <li>
-      <p><%= checkpoint.name %></p>
-      <%= link_to "Ver hito", checkpoint_path(checkpoint) %>
-    </li>
-  <% end %>
-</ul>
+<h1 class="mt-10 | text-3xl uppercase font-bold">Hitos</h1>
+<h2 class="mt-2 | text-lg">Listado de todos los hitos.</h2>
+
+<div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg | my-5">
+  <table class="table-auto | min-w-full divide-y divide-gray-300">
+  <thead class="bg-gray-50">
+      <tr class="text-left">
+        <th class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Nombre</th>
+        <th class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Descripción</th>
+        <th class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Acciones</th>
+      </tr>
+    </thead>
+    <tbody class="bg-white">
+    <% @checkpoints.each do |checkpoint| %>
+      <tr>
+        <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-600 sm:pl-6 | hover:text-black">
+          <%= link_to checkpoint.name, checkpoint_path(checkpoint) %>
+        </td>
+        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><%= checkpoint.description %></td>
+        <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+          <span class="isolate inline-flex rounded-md shadow-sm">
+            <%= link_to checkpoint_resource_path(checkpoint), class: "relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500" do %>
+              <!-- https://heroicons.com -->
+              <svg class="-ml-1 mr-2 h-5 w-5 text-red-900 hover:text-red-900" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M10 1c-1.716 0-3.408.106-5.07.31C3.806 1.45 3 2.414 3 3.517V18.25a.75.75 0 001.075.676L10 16.082l5.925 2.844A.75.75 0 0017 18.25V3.517c0-1.103-.806-2.068-1.93-2.207A41.403 41.403 0 0010 1z" clip-rule="evenodd" />
+              </svg> 
+              Recursos
+            <% end %>
+          </span>
+
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
