@@ -7,8 +7,8 @@ RSpec.describe 'Resources', type: :request do
     context 'Resource index' do
       it 'The page must to have the title Detalle del recurso' do
         get resource_path(resource.id)
-        expect(response.code).to eq("200")
-        #expect(response.body).to include('Detalle del recurso')
+        expect(response.code).to eq('200')
+        # expect(response.body).to include('Detalle del recurso')
       end
     end
   end
@@ -22,9 +22,9 @@ RSpec.describe 'Resources', type: :request do
     def execute
       post resources_path, params: {
         resource: {
-          name: ,
-          description: ,
-          url: ,
+          name:,
+          description:,
+          url:,
           checkpoint_id: checkpoint.id
         }
       }
@@ -71,6 +71,5 @@ RSpec.describe 'Resources', type: :request do
         end.to change { Resource.count }.by(0)
       end
     end
-
   end
 end

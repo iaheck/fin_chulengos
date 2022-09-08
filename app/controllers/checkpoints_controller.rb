@@ -1,5 +1,5 @@
 class CheckpointsController < ApplicationController
-  #before_action :set_roadmap, only: [:index]
+  # before_action :set_roadmap, only: [:index]
   before_action :set_checkpoint, only: [:show]
 
   def index

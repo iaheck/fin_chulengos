@@ -5,4 +5,3 @@ FactoryBot.define do
     url { 'http://google.cl' }
   end
 end
-  
