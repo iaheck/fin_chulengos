@@ -15,10 +15,10 @@ class CheckpointsController < ApplicationController
   def create
     @checkpoint = Checkpoint.new(
       name: checkpoint_params[:name],
-      description: checkpoint_params[:description],
-      )
+      description: checkpoint_params[:description]
+    )
 
-      params[:roadmap][:id].each do |roadmap|
+    params[:roadmap][:id].each do |roadmap|
       if !roadmap.empty?
         @checkpoint.checkpoint_roadmaps.build(:roadmap_id => roadmap)
       end
@@ -32,9 +32,10 @@ class CheckpointsController < ApplicationController
   end
 
   private
-    def checkpoint_params
-      params.require(:checkpoint).permit(:name, :description)
-    end
+
+  def checkpoint_params
+    params.require(:checkpoint).permit(:name, :description)
+  end
 
   def set_roadmap
     @roadmap = Roadmap.find(params[:roadmap_id])
