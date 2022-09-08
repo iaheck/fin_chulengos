@@ -1,7 +1,7 @@
-<h2>Hito</h2>
-<h1><%= @checkpoint.name %></h1>
+<h1 class="mt-10 | text-3xl uppercase font-bold">Hito: <%= @checkpoint.name %></h1>
 
-<p><%= @checkpoint.description %></p>
+<h2 class="mt-2 | text-lg"><%= @checkpoint.description %></h2>
 
-<h2>Recursos asociados</h2>
-<p> aquí pondría los recursos, si tuviera unooooo </p>
+<%= link_to "Ver todos los hitos", checkpoints_path , class: "inline-flex items-center rounded border border-gray-300 bg-white px-2.5 py-1.5 text-xs font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" %>
+
+<%#= render "list_of_resources", resources: @resources %>

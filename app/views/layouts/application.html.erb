@@ -6,6 +6,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <script src="https://cdn.tailwindcss.com"></script>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
@@ -21,6 +22,8 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="mx-20">
+      <%= yield %>
+    </div>
   </body>
 </html>
