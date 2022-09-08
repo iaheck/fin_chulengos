@@ -1,8 +1,6 @@
 class RoadmapsController < ApplicationController
   def show
-    if !user_signed_in? 
-      redirect_to '/login/index'
-    end
+    redirect_to '/login/index' unless user_signed_in?
     @roadmap = Roadmap.find(params[:id])
   end
 end
