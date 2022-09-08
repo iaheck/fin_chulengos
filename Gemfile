@@ -29,8 +29,8 @@ gem "jbuilder"
 
 gem "devise"
 
-#For enviroment variables
-gem 'dotenv-rails', groups: [:development, :test]
+# For enviroment variables
+gem 'dotenv-rails', groups: %i[development test]
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
@@ -42,7 +42,7 @@ gem 'dotenv-rails', groups: [:development, :test]
 # gem "bcrypt", "~> 3.1.7"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
+gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
@@ -55,15 +55,15 @@ gem "bootsnap", require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
-  gem "rspec-rails"
+  gem "debug", platforms: %i[mri mingw x64_mingw]
   gem "factory_bot_rails"
+  gem "rspec-rails"
   # Add rubocop configuration
   gem "rubocop", "1.31.2", require: false
+  gem "rubocop-flexport", "0.10.2", require: false
   gem "rubocop-performance", "1.14.2", require: false
   gem "rubocop-rails", "2.15.2", require: false
   gem "rubocop-rspec", "2.11.1", require: false
-  gem "rubocop-flexport", "0.10.2", require: false
 end
 
 group :development do

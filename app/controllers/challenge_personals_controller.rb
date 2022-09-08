@@ -12,7 +12,8 @@ class ChallengePersonalsController < ApplicationController
   end
 
   def create
-    @challenge_personal = ChallengePersonal.new(name: params[:name], description: params[:description], url: params[:url], checkpoint_id: params[:checkpoint_id])
+    @challenge_personal = ChallengePersonal.new(name: params[:name], description: params[:description],
+                                                url: params[:url], checkpoint_id: params[:checkpoint_id])
 
     if @challenge_personal.save
       redirect_to @challenge_personal
@@ -22,8 +23,8 @@ class ChallengePersonalsController < ApplicationController
   end
 
   private
+
   def set_challenge_personal
     @challenge_personal = ChallengePersonal.find(params[:id])
   end
-    
 end

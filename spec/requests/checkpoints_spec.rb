@@ -30,16 +30,16 @@ RSpec.describe "Checkpoints", type: :request do
 
     def execute
       post resource_index_path, params: {
-        name: name,
-        description: description
+        name:,
+        description:
       }
     end
 
     it do
       expect { execute }.to change { Resource.count }.by(1)
       expect(Resource.last).to have_attributes(
-        name: name,
-        description: description
+        name:,
+        description:
       )
     end
 
@@ -54,5 +54,4 @@ RSpec.describe "Checkpoints", type: :request do
       end
     end
   end
-
 end

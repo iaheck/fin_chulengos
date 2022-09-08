@@ -19,7 +19,7 @@ RSpec.describe "Resources", type: :request do
 
     def execute
       post resource_index_path, params: {
-        name: name,
+        name:,
         description: 'Contenido',
         url: 'http://google.cl'
       }
@@ -44,7 +44,5 @@ RSpec.describe "Resources", type: :request do
         end.to change { Resource.count }.by(0)
       end
     end
-
-
   end
 end

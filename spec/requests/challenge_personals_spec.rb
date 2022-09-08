@@ -17,15 +17,14 @@ RSpec.describe "ChallengePersonals", type: :request do
     let(:checkpoint) do
       Checkpoint.create(name: 'Checkpoint 1', description: 'Descripción del checkpoint 1')
     end
-    let (:checkpoint_id) { checkpoint.id }
-    
-    
+    let(:checkpoint_id) { checkpoint.id }
+
     def execute
       post challenge_personals_path, params: {
-        name: name,
-        description: description,
-        url: url,
-        checkpoint_id: checkpoint_id
+        name:,
+        description:,
+        url:,
+        checkpoint_id:
       }
     end
 
@@ -36,14 +35,14 @@ RSpec.describe "ChallengePersonals", type: :request do
         name: 'Pedro',
         description: 'Contenido',
         url: 'http://google.cl',
-        checkpoint: checkpoint
+        checkpoint:
       )
     end
   end
 
   describe "GET /show" do
     let!(:challenge_personal) { create(:challenge_personal) }
-  
+
     it "The page must to have the title Desafio personal" do
       get challenge_personal_path(challenge_personal.id)
 

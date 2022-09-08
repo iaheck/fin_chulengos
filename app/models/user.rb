@@ -10,11 +10,11 @@ class User < ApplicationRecord
          :lockable
   has_many :UserChallengeAssignment, dependent: :destroy
   has_many :user_read_resources, dependent: :destroy
-  has_many :resources, :through => :user_read_resources, dependent: :destroy
+  has_many :resources, through: :user_read_resources, dependent: :destroy
 
   has_many :roadmaps_users, dependent: :destroy
-  has_many :roadmaps, :through => :roadmaps_users
+  has_many :roadmaps, through: :roadmaps_users
 
   has_many :mentors_roadmaps, dependent: :destroy
-  has_many :roadmaps, :through => :mentors_roadmaps
+  has_many :roadmaps, through: :mentors_roadmaps
 end

@@ -16,5 +16,4 @@ RSpec.describe RoadmapsController, type: :request do
       expect(response.body).to include("sendero")
     end
   end
-
 end
