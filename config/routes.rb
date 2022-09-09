@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :roadmaps, only: [:show]
 
-  resources :checkpoints, only: %i[show new create]
+  resources :checkpoints, only: %i[index show new create]
 
   get 'checkpoints/:id/resource' => 'resources#index', as: :checkpoint_resource
 
