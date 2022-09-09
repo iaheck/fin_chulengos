@@ -1,5 +1,5 @@
 class ChallengePersonalsController < ApplicationController
-  before_action :set_challenge_personal, only: [:show :enroll_checkpoint]
+  before_action :set_challenge_personal, only: %i[show enroll_checkpoint]
 
   def index
     @list_challenge_personal = ChallengePersonal.all
@@ -26,9 +26,9 @@ class ChallengePersonalsController < ApplicationController
     @user_challenge_assignment = UserChallengeAssigment.new(user_id: current_user.id,
                                                             challenge_personal_id: @challenge_personal.id)
     if @user_challenge_assignment.save
-      flash[:notice] = "Estás inscrito en el Desafío!"
+      flash[:notice] = 'Estás inscrito en el Desafío!'
     else
-      flash[:alert] = "Error al inscribirse en el Desafío"
+      flash[:alert] = 'Error al inscribirse en el Desafío'
     end
     redirect_to @challenge_personal
   end
