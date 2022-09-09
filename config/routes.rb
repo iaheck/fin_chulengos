@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'login/index'
   devise_for :users, controllers: { registrations: 'users/registrations' }
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :resources
@@ -8,8 +7,8 @@ Rails.application.routes.draw do
 
   resources :roadmaps, only: [:show]
 
-  resources :checkpoints, only: %i[show new create]
-
+  resources :checkpoints, only: %i[index show new create]
+  get 'login/index'
   get 'checkpoints/:id/resource' => 'resources#index', as: :checkpoint_resource
 
   root 'roadmaps#show', defaults: { id: '1' }
