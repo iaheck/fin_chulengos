@@ -1,4 +1,4 @@
-<%= form_with model: @challenge_personal, 
+<%= form_with model: [ @checkpoint, @challenge_personal ], 
     class: 'space-y-3 my-5 ',
     local: true do |form| %>
     <div>
@@ -34,12 +34,12 @@
           dark:focus:border-blue-500" %>
     </div>
     
-    <div>
+    <!--<div>
       <%= form.label :checkpoint_id, 
         class: "pr-10" %>
       <%= form.select :checkpoint_id, 
         :class => "mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" %>
-    </div>
+    </div>-->
         <%= form.submit "Guardar desafío personal",
         :class => "inline-flex items-center rounded border border-transparent bg-indigo-600
          px-2.5 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-indigo-700 

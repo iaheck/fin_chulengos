@@ -10,9 +10,9 @@
       <tbody>
         <% @list_challenge_personal.each do |personal_challenge| %>
           <tr>
-            <td class="whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-gray-600 sm:pl-6 | hover:text-black"><%= link_to personal_challenge.id, personal_challenge %></td>
+            <td class="whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-gray-600 sm:pl-6 | hover:text-black"><%= personal_challenge.id%></td>
             <td class="whitespace-nowrap px-3 py-2 text-sm text-gray-500">
-              <%= link_to personal_challenge.name, challenge_personal(personal_challenge.id),
+              <%= link_to personal_challenge.name, challenge_personal_path(personal_challenge),
                 class: "inline-flex items-center rounded border border-gray-300 bg-white px-2.5 py-1.5 text-xs font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" %>
             </td>
           </tr>
