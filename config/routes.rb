@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   end
 
   resources :checkpoints, only: %i[index show new create]
-  get 'roadmap/enroll' => 'roadmaps#enroll', as: :enroll
+  # get 'roadmap/enroll' => 'roadmaps#enroll', as: :enroll
+  post 'roadmaps/enroll' => 'roadmaps#enroll', as: :enroll
   get 'checkpoints/:id/resource' => 'resources#index', as: :checkpoint_resource
   get 'roadmaps/:id' => 'roadmaps#show', as: :road
   root 'roadmaps#index'

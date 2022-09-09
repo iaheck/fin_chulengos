@@ -1,7 +1,11 @@
 <h2>Sendero</h2>
 <h1><%= @roadmap.name %></h1>
 <p><%= @roadmap.description %></p>
-<p><%= link_to "Incribirme", enroll_path(@roadmap) %></p>
+<!--<p><%= link_to "Incribirme", enroll_path(@roadmap) %></p>-->
+
+<% unless @user_already_enrolled %>
+ <%= button_to "Inscribirme", enroll_path(id: @roadmap.id), method: :post %>
+<% end %>
 
 <h2>Hitos del sendero</h2>
 <p> aquí pondría los hitos, si tuviera unooooo </p>

@@ -8,6 +8,11 @@ class RoadmapsController < ApplicationController
 
   def show
     redirect_to '/login/index' unless user_signed_in?
+
+    @user_already_enrolled = RoadmapUser.exists?(
+      user_id: current_user.id,
+      roadmap_id: @roadmap.id
+    )
   end
 
   def enroll
@@ -16,18 +21,16 @@ class RoadmapsController < ApplicationController
       roadmap_id: @roadmap.id
     )
     if @roadmap_user.save
-      puts 'save succesful'
+      flash[:notice] = "Saved succesfully!"
     else
-      puts 'not saveeed'
+      flash[:alert] = "Error"
     end
+    redirect_to @roadmap
   end
 
   private
 
   def set_roadmap
-    puts '----------READ HERE-----------'
-    puts params
     @roadmap = Roadmap.find(params[:id])
   end
-
 end
