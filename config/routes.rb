@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get 'login/index', as: :login_index
   get 'checkpoints/:id/resource' => 'resources#index', as: :checkpoint_resource
   get 'challenges/:id' => 'challenge_personals#show'
+  get 'checkpoints/:id/challenges' => 'challenge_personals#index', as: :checkpoint_challenge_personal
+
   root 'roadmaps#show', defaults: { id: '1' }
   post 'challenges/:id/enroll' => 'challenge_personals#enroll_challenge', as: :enroll_challenge
   # root to:"login#index"
