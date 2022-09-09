@@ -13,10 +13,12 @@ class ResourcesController < ApplicationController
   end
 
   def create
+    url = params[:resource][:url]
+    url = 'https://' << url unless url.start_with?('http')
     @resource = Resource.new(
       name: params[:resource][:name],
       description: params[:resource][:description],
-      url: params[:resource][:url]
+      url:
     )
 
     checkpoint_id = params[:resource][:checkpoint_id]
