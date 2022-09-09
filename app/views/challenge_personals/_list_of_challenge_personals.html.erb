@@ -5,15 +5,16 @@
         <tr class="text-left">
           <th class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">id</th>
           <th class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Nombre</th>
-          <th class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Opciones</th>
         </tr>
       </thead>
       <tbody>
         <% @list_challenge_personal.each do |personal_challenge| %>
           <tr>
             <td class="whitespace-nowrap py-2 pl-4 pr-3 text-sm font-medium text-gray-600 sm:pl-6 | hover:text-black"><%= link_to personal_challenge.id, personal_challenge %></td>
-            <td class="whitespace-nowrap px-3 py-2 text-sm text-gray-500"><%= personal_challenge.name %></td>
-            <td class="whitespace-nowrap px-3 py-2 text-sm text-gray-500">...</td>
+            <td class="whitespace-nowrap px-3 py-2 text-sm text-gray-500">
+              <%= link_to personal_challenge.name, challenge_personal(personal_challenge.id),
+                class: "inline-flex items-center rounded border border-gray-300 bg-white px-2.5 py-1.5 text-xs font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" %>
+            </td>
           </tr>
         <% end %>
       </tbody>
