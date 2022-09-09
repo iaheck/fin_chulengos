@@ -2,7 +2,9 @@ class CheckpointsController < ApplicationController
   # before_action :set_roadmap, only: [:index]
   before_action :set_checkpoint, only: [:show]
 
-  def show; end
+  def show
+    @list_resources = @checkpoint.resources
+  end
 
   def new
     @checkpoint = Checkpoint.new

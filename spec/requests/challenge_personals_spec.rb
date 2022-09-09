@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'ChallengePersonals', type: :request do
   let!(:user) { create(:user) }
+  let!(:checkpoint) { create(:checkpoint) }
+
   before do
     sign_in user
   end
@@ -9,7 +11,7 @@ RSpec.describe 'ChallengePersonals', type: :request do
   describe 'GET /index' do
     context 'ChallengePersonals index' do
       it 'The page must to have the title ChallengePersonals' do
-        get challenge_personals_path
+        get challenge_personals_path(id: checkpoint)
         expect(response.body).to include('Desafios personales')
       end
     end

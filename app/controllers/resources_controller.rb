@@ -3,7 +3,7 @@ class ResourcesController < ApplicationController
   before_action :set_checkpoint, only: %i[create index]
 
   def index
-    @list_resources = Resource.all
+    @list_resources = @checkpoint.resources
   end
 
   def show; end
