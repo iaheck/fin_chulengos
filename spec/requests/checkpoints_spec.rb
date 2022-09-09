@@ -3,13 +3,6 @@ require 'rails_helper'
 RSpec.describe 'Checkpoints', type: :request do
   let!(:roadmap) { create(:roadmap) }
 
-  describe 'GET /index nested in path' do
-    it 'returns http success' do
-      get roadmap_checkpoints_path(roadmap)
-      expect(response).to have_http_status(:success)
-    end
-  end
-
   let!(:checkpoint) { create(:checkpoint) }
   describe 'GET /show' do
     it 'returns http success' do
