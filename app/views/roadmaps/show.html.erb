@@ -3,6 +3,9 @@
 <p><%= @roadmap.description %></p>
 
 <h2 class="mt-10 | text-2xl uppercase font-bold">Hitos</h2>
+<%=link_to 'Crear hito', 
+    new_checkpoint_path,
+    class: "relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 mt-5" %>
 
 <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg | my-5">
   <table class="table-auto | min-w-full divide-y divide-gray-300">
