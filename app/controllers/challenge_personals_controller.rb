@@ -10,13 +10,15 @@ class ChallengePersonalsController < ApplicationController
 
   def new
     @challenge_personal = ChallengePersonal.new
+    @checkpoint = Checkpoint.find(params[:id])
   end
 
   def create
-    url = params[:url]
+    url = params[:challenge_personal][:url]
     url = 'https://' << url if !url.nil? && !url.start_with?('http')
-    @challenge_personal = ChallengePersonal.new(name: params[:name], description: params[:description],
-                                                url:, checkpoint_id: params[:checkpoint_id])
+    @challenge_personal = ChallengePersonal.new(name: params[:challenge_personal][:name],
+                                                description: params[:challenge_personal][:description],
+                                                url:, checkpoint_id: params[:id])
 
     if @challenge_personal.save
       redirect_to @challenge_personal
