@@ -16,15 +16,16 @@ class ResourcesController < ApplicationController
     @resource = Resource.new(
       name: params[:resource][:name],
       description: params[:resource][:description],
-      url: params[:resource][:url]
+      url: params[:resource][:url],
     )
 
+    checkpoint_id = params[:resource][:checkpoint_id]
+    @resource.checkpoint_resources.new(checkpoint_id:) unless checkpoint_id.empty?
+
     if @resource.save
-      # @checkpoint = Checkpoint.find(params[:checkpoint_id])
       redirect_to checkpoint_resource_path(@checkpoint), flash: { success: 'Recurso creado con éxito' }
     else
       redirect_to checkpoint_resource_path(@checkpoint), flash: { error: 'Error al crear el recurso' }
-      #  render :index, status: :unprocessable_entity
     end
   end
 
