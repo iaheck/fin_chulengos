@@ -16,7 +16,7 @@ class ResourcesController < ApplicationController
     @resource = Resource.new(
       name: params[:resource][:name],
       description: params[:resource][:description],
-      url: params[:resource][:url],
+      url: params[:resource][:url]
     )
 
     checkpoint_id = params[:resource][:checkpoint_id]
