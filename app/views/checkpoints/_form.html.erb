@@ -1,15 +1,25 @@
-<%= form_with model: checkpoint do |form| %>
+<%= form_with model: checkpoint,
+    class: 'space-y-3 my-5 ' do |form| %>
   <div>
-    <%= form.label :Nombre %><br>
-    <%= form.text_field :name %>
-    <% checkpoint.errors.full_messages_for(:name).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
+    <%= form.label :name, 
+      class: "pr-10" %>
+    <%= form.text_field :name, 
+      class: "bg-gray-50 border border-gray-300 text-gray-900 
+        text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 
+        block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 
+        dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500
+        dark:focus:border-blue-500" %>
+    </div>
 
-  <div>
-    <%= form.label :'Descripción' %><br>
-    <%= form.text_area :description %><br>
+    <div>
+      <%= form.label :description, 
+        class: "pr-10" %>
+      <%= form.text_area :description, 
+        class: "bg-gray-50 border border-gray-300 text-gray-900 
+          text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 
+          block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 
+          dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500
+          dark:focus:border-blue-500" %>
     <% checkpoint.errors.full_messages_for(:description).each do |message| %>
       <div><%= message %></div>
     <% end %>
@@ -23,6 +33,9 @@
   <% end %>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit "Guardar nuevo hito",
+    :class => "inline-flex items-center rounded border border-transparent bg-indigo-600
+     px-2.5 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-indigo-700 
+     focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" %>
   </div>
 <% end %>
