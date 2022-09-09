@@ -20,7 +20,7 @@ class ChallengePersonalsController < ApplicationController
     url = params[:url]
     url = 'https://' << url unless url.start_with?('http')
     @challenge_personal = ChallengePersonal.new(name: params[:name], description: params[:description],
-                                                url: , checkpoint_id: params[:checkpoint_id])
+                                                url:, checkpoint_id: params[:checkpoint_id])
 
     if @challenge_personal.save
       redirect_to @challenge_personal
