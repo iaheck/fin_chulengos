@@ -1,3 +1,8 @@
-<h1>Desafios personales</h1>
-<%= render "form", resources: @challenge_personal %>
-<%= render "list_of_challenge_personals", resources: @challenge_personal %>
+<div class="my-5">
+  <h1 class="text-3xl uppercase font-bold | border-b border-gray-200 pb-5">Desafios personales</h1>
+  <%=link_to 'Crear desafío personal', 
+    new_challenge_personal_path,
+    class: "relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 mt-5" %>
+  <%#= render "form", resources: @challenge_personal %>
+  <%= render "list_of_challenge_personals", resources: @challenge_personal %>
+</div>

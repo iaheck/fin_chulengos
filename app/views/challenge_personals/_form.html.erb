@@ -1,20 +1,48 @@
-<%= form_with model: @challenge_personal, local: true do |form| %>
+<%= form_with model: @challenge_personal, 
+    class: 'space-y-3 my-5 ',
+    local: true do |form| %>
     <div>
-        <%= form.label :name %>
-        <%= form.text_field :name %>
+      <%= form.label :name, 
+        class: "pr-10" %>
+      <%= form.text_field :name, 
+        class: "bg-gray-50 border border-gray-300 text-gray-900 
+          text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 
+          block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 
+          dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500
+          dark:focus:border-blue-500" %>
     </div>
     <div>
-        <%= form.label :description %>
-        <%= form.text_area :description %>
+      <%= form.label :description, 
+        class: "pr-10" %>
+      <%= form.text_area :description, 
+        class: "bg-gray-50 border border-gray-300 text-gray-900 
+          text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 
+          block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 
+          dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500
+          dark:focus:border-blue-500" %>
     </div>
+
+
     <div>
-        <%= form.label :url %>
-        <%= form.text_field :url %>
+      <%= form.label :url, 
+        class: "pr-10" %>
+      <%= form.text_field :url, 
+        class: "bg-gray-50 border border-gray-300 text-gray-900 
+          text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 
+          block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 
+          dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500
+          dark:focus:border-blue-500" %>
     </div>
+    
     <div>
-        <%= form.label :checkpoint_id %>
-        <%= form.select :checkpoint_id, options_for_select(Checkpoint.all.map { |c| [c.name, c.id] }) %>
-    <div>
-        <%= form.submit %>
+      <%= form.label :checkpoint_id, 
+        class: "pr-10" %>
+      <%= form.select :checkpoint_id, 
+        :class => "mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" %>
+    </div>
+        <%= form.submit "Guardar desafío personal",
+        :class => "inline-flex items-center rounded border border-transparent bg-indigo-600
+         px-2.5 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-indigo-700 
+         focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" %>
     </div>
 <% end %>
