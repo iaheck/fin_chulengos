@@ -8,21 +8,42 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    </head>
     
-    <%= link_to_unless_current "Home", root_path %>
-    <% if current_user %>
-      <%= link_to_unless_current current_user.full_name, edit_user_registration_path %>
-      <%= button_to "Salir", destroy_user_session_path, method: :delete, data: { turbo: false } %> 
-    <% else %>
-      <%= link_to "Registrarse", new_user_registration_path %>
-      <%= link_to "Ingresar", new_user_session_path %>
-    <% end %>
-  </head>
+    <body>
+    <div class="md:flex md:items-center md:justify-between bg-black px-20 py-3">
+      <div class="min-w-0 flex-1">
+        <h2 class="text-2xl font-bold leading-7 text-white sm:truncate sm:text-3xl sm:tracking-tight"><%= link_to_unless_current "Paraffin", 
+        root_path %></h2>
+      </div>
+      <div class="mt-4 flex md:mt-0 md:ml-4">
+        <%= link_to_unless_current "Home", 
+            login_index_path, 
+            :class => "text-white px-4 py-2" %>
+        <% if current_user %>
+          <%= link_to current_user.full_name, 
+              edit_user_registration_path,
+              :class => "text-white px-4 py-2" %>
+          <%= button_to "Salir", 
+            destroy_user_session_path, 
+            method: :delete, 
+            data: { turbo: false },
+            :class => "inline-flex items-center rounded-md border border-transparent bg-gray-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-800" 
+            %>
+        <% else %>
+          <%= link_to_unless_current "Registrarse", 
+              new_user_registration_path,
+              :class => "text-white px-4 py-2" %>
+          <%= link_to_unless_current "Ingresar", 
+              new_user_session_path,
+              :class => "text-white px-4 py-2" %>
+        <% end %>
+      </div>
+    </div>
 
-  <body>
     <div class="mx-20">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
       <%= yield %>
     </div>
   </body>
