@@ -4,3 +4,7 @@
 <p><%= @challenge_personal.name %></p>
 <p><%= @challenge_personal.description %></p>
 <p><%= @challenge_personal.url %></p>
+
+<% unless @user_already_enrolled %>
+ <%= button_to "Inscribirme", enroll_challenge_path(id: @challenge_personal.id), method: :post %>
+<% end %>

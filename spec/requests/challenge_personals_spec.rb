@@ -1,6 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe 'ChallengePersonals', type: :request do
+  let!(:user) { create(:user) }
+  before do
+    sign_in user
+  end
+
   describe 'GET /index' do
     context 'ChallengePersonals index' do
       it 'The page must to have the title ChallengePersonals' do
