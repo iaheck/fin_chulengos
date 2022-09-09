@@ -1,11 +1,16 @@
 class ChallengePersonalsController < ApplicationController
-  before_action :set_challenge_personal, only: %i[show enroll_checkpoint]
+  before_action :set_challenge_personal, only: %i[show enroll_challenge]
 
   def index
     @list_challenge_personal = ChallengePersonal.all
   end
 
-  def show; end
+  def show
+    @user_already_enrolled = UserChallengeAssigment.exists?(
+      user_id: current_user.id,
+      challenge_personal_id: @challenge_personal.id
+    )
+  end
 
   def new
     @challenge_personal = ChallengePersonal.new
@@ -22,7 +27,7 @@ class ChallengePersonalsController < ApplicationController
     end
   end
 
-  def enroll_checkpoint
+  def enroll_challenge
     @user_challenge_assignment = UserChallengeAssigment.new(user_id: current_user.id,
                                                             challenge_personal_id: @challenge_personal.id)
     if @user_challenge_assignment.save
