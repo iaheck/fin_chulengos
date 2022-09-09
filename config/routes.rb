@@ -5,11 +5,10 @@ Rails.application.routes.draw do
   resources :resources
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :roadmaps, only: [:show] do
-    resources :checkpoints, only: [:index]
-  end
 
-  resources :checkpoints, only: %i[index show new create]
+  resources :roadmaps, only: [:show]
+
+  resources :checkpoints, only: %i[show new create]
 
   get 'checkpoints/:id/resource' => 'resources#index', as: :checkpoint_resource
 
