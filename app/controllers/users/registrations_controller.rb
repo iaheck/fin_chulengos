@@ -5,6 +5,20 @@ module Users
     before_action :configure_sign_up_params, only: [:create]
     before_action :configure_account_update_params, only: [:update]
 
+    # POST /resource
+    def create
+      super
+
+      current_user.roadmap_users.create!(roadmap: Roadmap.first)
+
+      # RoadmapUser.create!(
+      #   roadmap: Roadmap.first,
+      #   user: current_user
+      # )
+
+      # current_user.roadmaps
+    end
+
     # rest of code as generated
     protected
 
@@ -20,11 +34,6 @@ module Users
 
     # GET /resource/sign_up
     # def new
-    #   super
-    # end
-
-    # POST /resource
-    # def create
     #   super
     # end
 

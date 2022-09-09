@@ -12,8 +12,8 @@ class User < ApplicationRecord
   has_many :user_read_resources, dependent: :destroy
   has_many :resources, through: :user_read_resources, dependent: :destroy
 
-  has_many :roadmaps_users, dependent: :destroy
-  has_many :roadmaps, through: :roadmaps_users
+  has_many :roadmap_users, dependent: :destroy
+  has_many :roadmaps, through: :roadmap_users
 
   has_many :mentors_roadmaps, dependent: :destroy
   has_many :roadmaps, through: :mentors_roadmaps
