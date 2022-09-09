@@ -1,8 +1,9 @@
 class ChallengePersonalsController < ApplicationController
   before_action :set_challenge_personal, only: %i[show enroll_challenge]
+  before_action :set_checkpoint, only: %i[index]
 
   def index
-    @list_challenge_personal = ChallengePersonal.all
+    @list_challenge_personal = @checkpoint.challenge_personals
   end
 
   def show
@@ -44,5 +45,15 @@ class ChallengePersonalsController < ApplicationController
 
   def set_challenge_personal
     @challenge_personal = ChallengePersonal.find(params[:id])
+  end
+
+  def set_checkpoint
+    checkpoint_id = if params[:resource].present?
+                      params[:resource][:checkpoint_id]
+                    else
+                      params[:id]
+                    end
+
+    @checkpoint = Checkpoint.find(checkpoint_id)
   end
 end
