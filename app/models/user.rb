@@ -9,12 +9,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :lockable
   has_many :UserChallengeAssignment, dependent: :destroy
-  has_many :user_read_resources, dependent: :destroy
   has_many :resources, through: :user_read_resources, dependent: :destroy
 
   has_many :roadmap_users, dependent: :destroy
   has_many :roadmaps, through: :roadmap_users
-
-  has_many :mentors_roadmaps, dependent: :destroy
-  has_many :roadmaps, through: :mentors_roadmaps
 end
